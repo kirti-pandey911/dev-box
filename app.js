@@ -32,12 +32,12 @@ app.get('/products/:skip/:limit', async(req,res) => {
       requested: { skip, limit },
       products: data.products,
     });
-
-
 })
-app.get('/search/:query', async(req,res) => {
-    let category = await client.get('metadata_lifestyle')
-    return res.send({ message:"search endpoint", data: res1 });
+app.get('/search', async(req,res) => {
+   const res1 = await client.rPop('bikes:repairs');
+console.log(res1);
+res.send({"response":res1})
+    // res.send({"response":res1})   
 })
 
 // connect to MongoDB
