@@ -32,7 +32,14 @@ app.get('/products/:skip/:limit', async(req,res) => {
       requested: { skip, limit },
       products: data.products,
     });
+
 })
+
+
+
+
+
+//space added
 app.get('/search', async(req,res) => {
    const res1 = await client.rPop('bikes:repairs');
 console.log(res1);
